@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Oxanium:400,500,600,700,800|Poppins:400,400i,500,500i,600,600i,700,700i&display=swap');
+@font-face {
+    font-family: 'kollektif';
+    src: url('../../assets/fonts/Kollektif.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer{
+    align-items: center;
+    height: fit-content;
+    background-color: #a0cc3a98;
+    padding: 20px 20px;
+    color: black;
+    font-family: 'kollektif';
+    font-size: 1.1rem;
+}
