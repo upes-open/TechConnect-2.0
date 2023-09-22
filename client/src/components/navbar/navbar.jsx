@@ -1,23 +1,25 @@
 import React from 'react';
 import './navbar.css';
+
 // import image from "../../assets/img/logo/techconnect.jpeg"
 // import image2 from "../../assets/img/logo/open.png"
 
 function Navbar() {
-    return (
-      <nav className="navbar1">
-        <div className="navbar-left">
-            <img src="techconnect.jpeg" alt="Left Image" />
-            <img src="open.png" alt="Right Image" />
-        </div>
-        <div className="navbar2">
-            <div className="navbar-right">
-                <button>Login</button>
-            </div>
-            
-        </div>
-      </nav>
-    );
-  }
-  
-  export default Navbar;
+  return (
+    <nav className='navbar'>
+      <div className='left-nav'>
+        <img src="techconnect.jpeg" className='nav-image' alt="Left" />
+      </div>
+      <div className='right-nav'>
+        <a href="/login">
+          <button className='loginBtn'>
+            Login
+          </button>
+        </a>
+        <img src="open.png" className='nav-image rightImg' alt="Right" />
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

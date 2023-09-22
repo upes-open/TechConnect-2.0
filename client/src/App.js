@@ -1,16 +1,17 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-// import ScrollToTopRoute from "./components/scrolltotop/ScrollToTopRoute";
-import './App.css';
-import Footer from './components/footer/footer';
-import Landing from "./components/landing/landing";
+import Landing from './components/landing/landing';
+import Login from './components/login/login';
 
 function App() {
   return (
     <div className="App">
-      <div className='main'>
-        <Landing />
-      </div>
-      <Footer/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
