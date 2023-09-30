@@ -19,7 +19,6 @@
   height: 86vh;
   display: flex;
   flex-direction: column;
-  margin-top: 75px;
 }
 
 .landing {
@@ -27,6 +26,10 @@
   font-size: 4.6rem;
   font-weight: bold;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 hr {
@@ -73,7 +76,11 @@ hr {
 
 .card:nth-child(3) {
   background: linear-gradient(90deg, #D4FC79 0%, #96E6A1 100%);
+}
 
+.cardlink {
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 760px) {

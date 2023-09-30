@@ -8,6 +8,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'vemanemproregular';
+  src: url('../../assets/fonts/VemanemProRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -16,24 +23,43 @@
   display: flex;
 }
 
-.left-nav {
+.left {
   height: 100%;
-  width: 75%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.right-nav {
+.right {
   height: 100%;
-  width: 25%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 20px;
 }
 
-.nav-image {
+.navimg {
   height: 100%;
+}
+
+.nav-head {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000;
+  font-family: 'vemanemproregular';
+  font-size: 32px;
+  text-decoration: none;
+}
+
+@media (max-width: 750px) {
+  .left {
+    flex-direction: column;
+  }
+  .nav-head {
+    display: none;
+  }
 }
 
 .loginBtn {
@@ -55,56 +81,5 @@
 
 .rightImg {
   height: 80%;
+  margin-left: 20px;
 }
-
-/* .navbar1 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: white;
-}
-
-.navbar2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  color: white;
-
-}
-
-.navbar-left-nav img,
-.navbar-right img {
-  width: 80px;
-  padding: 10px 10px 30px 10px;
-}
-
-.navbar-right button {
-  border-radius: 15px;
-  border: 0px solid #320B0B;
-  background: linear-gradient(180deg, #c2ed5bd5 0%, #e1e445 97.92%);
-  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px 40px;
-  font-family: 'kollektif';
-  font-size: 0.9rem;
-  margin-left-nav: 10px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.navbar-right button:hover {
-  background: linear-gradient(180deg, #FFF96F 0%, #D0FF14 97.92%);
-  font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .navbar1 {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .navbar-right {
-    margin-top: 10px;
-  }
-} */

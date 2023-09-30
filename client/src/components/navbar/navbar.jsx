@@ -7,16 +7,15 @@ import './navbar.css';
 function Navbar() {
   return (
     <nav className='navbar'>
-      <div className='left-nav'>
-        <img src="techconnect.jpeg" className='nav-image' alt="Left" />
+      <div className='left'>
+        <img src="techconnect.jpeg" className='navimg' alt="Left" />
+        <a href="/" className='nav-head'>TECHCONNECT</a>
       </div>
-      <div className='right-nav'>
+      <div className='right'>
         <a href="/login">
-          <button className='loginBtn'>
-            Login
-          </button>
+          <button className='loginBtn'>Login</button>
         </a>
-        <img src="open.png" className='nav-image rightImg' alt="Right" />
+        <img src="open.png" className='navimg rightImg' alt="Right" />
       </div>
     </nav>
   );
