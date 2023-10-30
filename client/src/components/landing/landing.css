@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Oxanium:400,500,600,700,800|Poppins:400,400i,500,500i,600,600i,700,700i&display=swap');
+
 @font-face {
-    font-family: 'vemanemproregular';
-    src: url('../../assets/fonts/VemanemProRegular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'vemanemproregular';
+  src: url('../../assets/fonts/VemanemProRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
+
 @font-face {
   font-family: 'kollektif';
   src: url('../../assets/fonts/Kollektif.woff') format('woff');
@@ -12,74 +14,90 @@
   font-style: normal;
 }
 
-.landing{
-    font-family: 'vemanemproregular';
-    font-size: 4.6rem;
-    font-weight: bold;
+.main-landing {
+  width: 100%;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
 }
 
-hr{
-    width: 50%;
-}
-#cardlist{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 10%;
-}
-
-.card{
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    width: 28%;
-    padding: 40px 10px;
-    font-family: 'kollektif';
+.landing {
+  font-family: 'vemanemproregular';
+  font-size: 4.6rem;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.card button{
-    color: #fff;
-    padding: 2% 3%;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #1E3C72 0%, #1E3C72 1%, #2A5298 100%);
+hr {
+  width: 50%;
+}
+
+#cardlist {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 28%;
+  padding: 40px 10px;
+  font-family: 'kollektif';
+  text-align: center;
+}
+
+.card button {
+  color: #fff;
+  padding: 2% 3%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1E3C72 0%, #1E3C72 1%, #2A5298 100%);
 }
 
 .card:nth-child(1) {
-    background: linear-gradient(
-      180deg,
+  background: linear-gradient(180deg,
       rgba(255, 79, 79, 0.75) 12.15%,
       rgba(255, 166, 33, 0.75) 61.63%,
-      rgba(255, 231, 17, 0.75) 100%
-    );
-  }
-  
-  .card:nth-child(2) {
-    background: linear-gradient(180deg, rgba(0, 138, 182, 0.75) 4.86%, rgba(166, 223, 255, 0.75) 100%);
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  }
-  
-  .card:nth-child(3) {
-    background:linear-gradient(90deg, #D4FC79 0%, #96E6A1 100%);
+      rgba(255, 231, 17, 0.75) 100%);
+}
 
-  }
-  @media (max-width: 760px) {
-    #cardlist{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.card:nth-child(2) {
+  background: linear-gradient(180deg, rgba(0, 138, 182, 0.75) 4.86%, rgba(166, 223, 255, 0.75) 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
-    .card{
-        width: 80%;
-        margin-bottom: 5%;
-    }
+.card:nth-child(3) {
+  background: linear-gradient(90deg, #D4FC79 0%, #96E6A1 100%);
+}
+
+.cardlink {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 760px) {
+  #cardlist {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  .card {
+    width: 80%;
+    margin-bottom: 5%;
+  }
+}
 
 @media (max-width: 668px) {
-    .landing{
-        font-size: 2.5rem;
-    }
+  .landing {
+    font-size: 2.5rem;
   }
-  
- 
+}

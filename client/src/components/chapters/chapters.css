@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap');
+
+.chapters-heading {
+    width: 100%;
+    text-align: center;
+}
+
+.head-text {
+    color: #000;
+    text-align: center;
+    text-shadow: 6px 9px 4px rgba(255, 103, 103, 0.25);
+    font-family: 'Outfit', sans-serif;
+    font-size: 5rem;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
