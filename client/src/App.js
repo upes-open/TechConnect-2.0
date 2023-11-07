@@ -5,6 +5,7 @@ import Login from './components/login/login';
 import Chapters from './components/chapters/chapters';
 import Blogs from './components/blogs/blogs';
 import Opportunities from './components/opportunities/opportunities';
+import CreateChapterPost from './components/chapters/createchapterpost';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/chapters' element={<Chapters />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/opportunities' element={<Opportunities />} />
+          <Route path='/chapters/create' element={<CreateChapterPost />} />
         </Routes>
       </Router>
     </div>

@@ -11,7 +11,7 @@ export default function Header(props) {
     return (
         <>
 
-            <div className="header-box mt-5">
+            <div className="header-box mt-4">
                 <div className="header">
                     <div className="links-box row">
                         <div className={chaptersBoxClass}>

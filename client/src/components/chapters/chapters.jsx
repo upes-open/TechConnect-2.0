@@ -87,7 +87,7 @@ export default function Chapters() {
             <div className="chapters-content-box d-flex justify-content-center">
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={9}>
+                        <Grid item xs={12} md={9} order={1}>
                             <Container className="chapter-posts row d-flex justify-content-center">
                                 {posts.map((post, index) => (
                                     <ChapterPost
@@ -98,14 +98,15 @@ export default function Chapters() {
                                 ))}
                             </Container>
                         </Grid>
-                        <Grid item xs={3} borderLeft={1}>
+                        <Grid item xs={12} md={3} borderLeft={1} order={2}>
                             <Grid className='calendar'>
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DateCalendar defaultValue={currentDate} readOnly />
                                 </LocalizationProvider>
                             </Grid>
-                            <Container className='events text-center'>
-                                <h4 className='events-heading'>Your week in preview</h4>
+                            <Container className='events text-center mb-5'>
+                                <h4 className='events-heading'>Create Chapter</h4>
+                                <a className='btn btn-primary' href='/chapters/create'>Create</a>
                             </Container>
                         </Grid>
                     </Grid>
