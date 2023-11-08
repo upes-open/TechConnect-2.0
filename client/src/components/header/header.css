@@ -38,11 +38,19 @@
 
 .highlight {
     border-radius: 10px;
-    background: linear-gradient(180deg, rgba(255, 79, 79, 0.75) 12.15%, rgba(255, 166, 33, 0.75) 61.63%, rgba(255, 231, 17, 0.75) 100%);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.highlight:nth-of-type(1) {
+    background: linear-gradient(180deg, rgba(255, 79, 79, 0.75) 12.15%, rgba(255, 166, 33, 0.75) 61.63%, rgba(255, 231, 17, 0.75) 100%);
+}
+
+.highlight:nth-of-type(2) {
+    background: linear-gradient(180deg, rgba(0, 138, 182, 0.75) 4.86%, rgba(166, 223, 255, 0.75) 100%);
+}
+
+.highlight:nth-of-type(3) {
+    background: linear-gradient(180deg, rgba(97, 255, 0, 0.75) 4.86%, rgba(255, 199, 0, 0.75) 100%);
 }
 
 .link-box {
