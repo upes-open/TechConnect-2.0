@@ -5,6 +5,7 @@ import Login from './components/login/login';
 import Chapters from './components/chapters/chapters';
 import Blogs from './components/blogs/blogs';
 import Opportunities from './components/opportunities/opportunities';
+import Register from "./components/register/register";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path='/chapters' element={<Chapters />} />
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/opportunities' element={<Opportunities />} />
