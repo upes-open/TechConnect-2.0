@@ -1,0 +1,11 @@
+.formbox1 {
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #feada6 0%, #ffbd8e 0.01%, #ff8c8c 40.8%, #ffe68c 94.97%);
+}
+
+.formbox2 {
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #a1c4fd 0%, #c2e9fb 100%);
+}

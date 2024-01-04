@@ -3,6 +3,7 @@
 .chapters-heading {
     width: 100%;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .head-text {
@@ -10,8 +11,54 @@
     text-align: center;
     text-shadow: 6px 9px 4px rgba(255, 103, 103, 0.25);
     font-family: 'Outfit', sans-serif;
-    font-size: 5rem;
+    font-size: 4.5rem;
+    /* Adjusted font size for responsiveness */
     font-style: normal;
     font-weight: bold;
     line-height: normal;
+}
+
+.chapters-content-box {
+    max-width: 100%;
+}
+
+.chapters-content-left{
+    padding: 0 0;
+    width: 100%;
+}
+
+.chapters-content-right {
+    border-left: 1px solid #000;
+}
+
+.chapter-posts {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow the posts to wrap on smaller screens */
+}
+
+.calendar {
+    flex: 1;
+    overflow: auto;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 991px) {
+    .head-text {
+        font-size: 3.5rem;
+    }
+
+    .chapters-content-left {
+        width: 100%;
+        order: 2;
+        /* Change the order of the left content on smaller screens */
+    }
+
+    .chapters-content-right {
+        width: 100%;
+        border-left: none;
+        order: 1;
+    }
 }

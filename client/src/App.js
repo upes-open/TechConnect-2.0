@@ -4,7 +4,11 @@ import Landing from './components/landing/landing';
 import Login from './components/login/login';
 import Chapters from './components/chapters/chapters';
 import Blogs from './components/blogs/blogs';
+import CreateBlogPost from './components/blogs/createblogpost';
+import CreateBlogAdmin from './components/blogs/createblogadmin';
 import Opportunities from './components/opportunities/opportunities';
+import CreateChapterPost from './components/chapters/createchapterpost';
+import CreateChapterAdmin from './components/chapters/createchapteradmin';
 
 function App() {
   return (
@@ -15,7 +19,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path='/chapters' element={<Chapters />} />
           <Route path='/blogs' element={<Blogs />} />
+          <Route path='/blogs/create' element={<CreateBlogPost />} />
+          <Route path='/blogs/create/admin' element={<CreateBlogAdmin />} />
           <Route path='/opportunities' element={<Opportunities />} />
+          <Route path='/chapters/create' element={<CreateChapterPost />} />
+          <Route path='/chapters/create/admin' element={<CreateChapterAdmin />} />
+          <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
     </div>
