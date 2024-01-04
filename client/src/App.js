@@ -6,6 +6,7 @@ import Chapters from './components/chapters/chapters';
 import Blogs from './components/blogs/blogs';
 import Opportunities from './components/opportunities/opportunities';
 import CreateChapterPost from './components/chapters/createchapterpost';
+import CreateChapterAdmin from './components/chapters/createchapteradmin';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
           <Route path='/blogs' element={<Blogs />} />
           <Route path='/opportunities' element={<Opportunities />} />
           <Route path='/chapters/create' element={<CreateChapterPost />} />
+          <Route path='/chapters/create/admin' element={<CreateChapterAdmin />} />
+          <Route path='*' element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
     </div>
