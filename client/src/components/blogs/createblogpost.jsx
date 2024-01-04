@@ -11,36 +11,32 @@ import Navbar from "../navbar/navbar";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 
-import createImg from "../../assets/img/chapters/chapterpost.png";
-
-import "./createchapterpost.css";
+import createImg from "../../assets/img/blogs/blogpost.png";
 
 const getCurrentDate = () => {
   return dayjs().format("YYYY-MM-DD");
 };
 
-export default function CreateChapterPost() {
+export default function CreateBlogPost() {
   const [currentDate] = useState(dayjs(getCurrentDate()));
 
+  const [userType, setUserType] = useState("user"); // ["admin", "user"
+
   const [formData, setFormData] = useState({
-    chapterName: "",
-    eventName: "",
-    eventLocation: "",
-    eventDescription: "",
-    eventDate: "",
-    eventPoster: "",
+    blogTitle: "",
+    writerName: "",
+    writerYOE: "",
+    blogContent: "",
   });
 
   function handleOnSubmit(event) {
     event.preventDefault();
     console.log(formData);
     setFormData({
-      chapterName: "",
-      eventName: "",
-      eventLocation: "",
-      eventDescription: "",
-      eventDate: "",
-      eventPoster: "",
+      blogTitle: "",
+      writerName: "",
+      writerYOE: "",
+      blogContent: "",
     });
   }
 
@@ -54,9 +50,9 @@ export default function CreateChapterPost() {
   return (
     <>
       <Navbar />
-      <Header highlight="chapters" />
+      <Header highlight="blogs" />
 
-      <div className="chapters-content-box d-flex justify-content-center my-5">
+      <div className="chapters-content-box d-flex justify-content-center my-5" style={{minHeight: '60vh'}}>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} md={9} order={1}>
@@ -67,24 +63,23 @@ export default function CreateChapterPost() {
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <div className="formbox1 text-center d-flex flex-column justify-content-center align-items-center py-3">
-                    <h1 className="mt-3">Create A Post</h1>
+                  <div className="formbox2 text-center d-flex flex-column justify-content-center align-items-center py-3">
+                    {userType==="user" && <h1 className="mt-3">Submit A Blog</h1>}
+                    {userType==="admin" && <h1 className="mt-3">Publish A Blog</h1>}
                     <form className="form-group w-75" onSubmit={handleOnSubmit}>
-                      <input type="text" className="form-control my-3" id="chapterName" placeholder="Name of Chapter" onChange={handleOnChange} value={formData.chapterName}/>
-                      <input type="text" className="form-control my-3" id="eventName" placeholder="Event Name" onChange={handleOnChange} value={formData.eventName}/>
-                      <input type="text" className="form-control my-3" id="eventLocation" placeholder="Event Location" onChange={handleOnChange} value={formData.eventLocation}/>
-                      <input type="date" className="form-control my-3" id="eventDate" placeholder="Event Date" onChange={handleOnChange} value={formData.eventDate}/>
-                      <input type="text" className="form-control my-3" id="eventPoster" placeholder="Event Poster" onChange={handleOnChange}/>
+                      <input type="text" className="form-control my-3" id="blogTitle" placeholder="Blog Title" onChange={handleOnChange} value={formData.blogTitle}/>
+                      <input type="text" className="form-control my-3" id="writerName" placeholder="Your Name" onChange={handleOnChange} value={formData.writerName}/>
+                      <input type="text" className="form-control my-3" id="writerYOE" placeholder="Your Year of Education" onChange={handleOnChange} value={formData.writerYOE}/>
                       <textarea
                         className="form-control"
-                        id="eventDescription"
+                        id="blogContent"
                         rows="3"
-                        placeholder="Enter Event Description"
+                        placeholder="Add Blog Content"
                         onChange={handleOnChange}
-                        value={formData.eventDescription}
+                        value={formData.blogContent}
                       ></textarea>
                       <button type="submit" className="btn btn-primary mt-3">
-                        Post
+                        Submit
                       </button>
                     </form>
                   </div>

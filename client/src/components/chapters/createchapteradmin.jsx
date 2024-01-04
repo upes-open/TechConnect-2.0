@@ -23,6 +23,15 @@ export default function CreateChapterAdmin() {
   function handleOnSubmit(event) {
     event.preventDefault();
     console.log(formData);
+    setFormData({
+      chapterName: "",
+      chapterLogo: "",
+      eventName: "",
+      eventLocation: "",
+      eventDescription: "",
+      eventDate: "",
+      eventPoster: "",
+    });
   }
 
   function handleOnChange(event) {
@@ -48,7 +57,7 @@ export default function CreateChapterAdmin() {
                   </div>
                 </div>
                 <div className="col-md-8">
-                  <div className="formbox text-center d-flex flex-column justify-content-center align-items-center py-3">
+                  <div className="formbox1 text-center d-flex flex-column justify-content-center align-items-center py-3">
                     <h1 className="mt-3">Create A Post</h1>
                     <form className="form-group" style={{ width: "90%" }} onSubmit={handleOnSubmit}>
                       <p className="mb-2 text-start">Chapter Details</p>

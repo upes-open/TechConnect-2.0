@@ -97,7 +97,7 @@ export default function Blogs() {
               </Grid>
               <Container className='events text-center mb-5'>
                 <h4 className='events-heading'>Create Blog</h4>
-                <a className='btn btn-primary' href='/chapters/create'>Create</a>
+                <a className='btn btn-primary' href='/blogs/create'>Create</a>
               </Container>
             </Grid>
           </Grid>
