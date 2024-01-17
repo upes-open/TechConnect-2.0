@@ -1,14 +1,20 @@
-const mongoose=require("mongoose");
+// const mongoose=require("mongoose");
 const express=require("express");
 const cors=require("cors");
-const passport=require("passport");
-const passportlLocal=require("passport-local").Strategy;
+// const passport=require("passport");
+const LocalStrategy=require("passport-local").Strategy;
 const cookieParser=require("cookie-parser");
 const bcrypt=require("bcrypt");
-const session=require("express-session");
+// const session=require("express-session");
 const bodyParser=require("body-parser");
-const User=require('./user')
+const User=require('./routes/user')
+var path = require('path');
 const app=express();
+
+
+var passport=require("passport");
+var mongoose=require("mongoose");
+var session=require("express-session");
 
 mongoose.connect("mongodb+srv://agrimajain223:agrimajain123@cluster0.sficaga.mongodb.net/test",
   {useNewUrlParser:true,
@@ -30,54 +36,29 @@ app.use(cors({
 }))
 app.use(session({
   secret:"secretcode",
-  resave:true,
+  // resave:true,
+  resave:false,
   saveUninitialized:true
 }));
 
 app.use(cookieParser("Secretcode"))
 app.use(passport.initialize());
 app.use(passport.session());
-require('./routes/passportconfig')(passport);
+require('./passportconfig');
+
+var index=require('./routes/index');
+var users=require('./routes/user');
+var auth=require('./routes/auth')(passport);
 
 
-//routes
-app.post("/login",(req,res,next)=>{
-  passport.authenticate("local",(err,user,info)=>{
-    if(err)throw err;
-    if(!user) res.send("No user exists");
-    else{
-      req.login(user,err=>{
-        if (err) throw err;
-        if (!user) res.send("Successfully Authenticated");
-        console.log(req.user);
-       } )
-    }
-  })(req,res,next);
-})
+app.use('/',index);
+app.use('/users',users);
+app.use('/auth',auth);
 
-
-
-app.post("/register", async (req, res) => {
-  try {
-    const user = await User.findOne({ username: req.body.username });
-    if (user) {
-      return res.status(400).json({ error: "User Already exists" });
-    }
-    
-    const hashedPassword = await bcrypt.hash(req.body.password, 5); // Using async/await for bcrypt
-    const newUser = new User({
-      username: req.body.username,
-      password: hashedPassword,
-    });
-    
-    await newUser.save();
-    return res.status(200).json({ message: "User created" });
-  } catch (err) {
-    return res.status(500).json({ error: "Internal Server Error" });
-  }
-});
 
 //start server
 app.listen(4000,()=>{
   console.log("Server has started")
 })
+
+

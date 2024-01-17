@@ -4,8 +4,6 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
-
 import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
 import LoginImage from './loginimg.png'
@@ -20,7 +18,7 @@ export default function Register() {
     const register = () => {
     Axios({
         method: "POST",
-        url: "http://localhost:4000/register",
+        url: "http://localhost:4000/auth/register",
         data: {
           username: name,
           password: password,
@@ -29,8 +27,8 @@ export default function Register() {
       })
         .then((res) => console.log(res))
         .catch((error) => {
-          if (error.response) {
-            console.error("Response data:", error.response.data);
+            if (error.response.status === 500) {
+            console.log("Response data:", error.response.data);
           } else {
             console.error("Network error:", error.message);
           }
@@ -49,14 +47,14 @@ export default function Register() {
                 <div className='right-login'>
                     <div className='login-box'>
                         <h1 className='login-title'>Register Now</h1>
-                        <form className='login-form'>
+                        <form  className='login-form' method="post">
                             <div className='login-input'>
                                 <div className='name'>
-                                    <TextField id="outlined-basic" label="Name" variant="outlined" className='name-input' 
+                                    <TextField id="outlined-basic-1" label="Name" variant="outlined" className='name-input' value={name}
                                     onChange={(e)=>setName(e.target.value)}/>
                                 </div>
                                 <div className='pass'>
-                                    <TextField id="outlined-basic" label="Password" variant="outlined" className='password-input'
+                                    <TextField id="outlined-basic-2" label="Password" variant="outlined" className='password-input' type="password" value={password}
                                     onChange={(e)=>setPassword(e.target.value)}/> 
                                 </div>
                             </div>
