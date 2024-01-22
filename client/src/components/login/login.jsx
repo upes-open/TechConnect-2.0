@@ -10,15 +10,20 @@ import Footer from '../footer/footer'
 import LoginImage from './loginimg.png'
 import './login.css'
 import axios from "axios"
+import { useNavigate } from 'react-router';
+
+
 
 
 export default function Login() {
     const [username,setUsername]=useState();
     const [password,setPassword]=useState();
+    const navigate = useNavigate();
 
     const submit = () =>{
         axios.post("http://localhost:4000/auth/login",{username,password}).then(user=>{
-            console.log(username,password)
+            console.log(username,password);
+            navigate("/chapters");
         }).catch(err =>{
             console.log("User does not exist",err);
         })
