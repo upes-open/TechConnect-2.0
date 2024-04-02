@@ -1,95 +1,64 @@
-const express = require("express"); // server software
-const bodyParser = require("body-parser"); // parser middleware
-const session = require("express-session"); // session middleware
-const passport = require("passport"); // authentication
-const connectEnsureLogin = require("connect-ensure-login"); // authorization
-const mongoose = require("mongoose");
+// const mongoose=require("mongoose");
+const express=require("express");
+const cors=require("cors");
+// const passport=require("passport");
+const LocalStrategy=require("passport-local").Strategy;
+const cookieParser=require("cookie-parser");
+const bcrypt=require("bcrypt");
+// const session=require("express-session");
+const bodyParser=require("body-parser");
+const User=require('./routes/user')
+var path = require('path');
+const app=express();
 
-const User = require("../server/models/user"); // User Model
 
-const app = express();
+var passport=require("passport");
+var mongoose=require("mongoose");
+var session=require("express-session");
 
-const DB = "mongodb+srv://test:test@cluster0.ygzrqxk.mongodb.net/";
+mongoose.connect("mongodb+srv://agrimajain223:agrimajain123@cluster0.sficaga.mongodb.net/test",
+  {useNewUrlParser:true,
+  useUnifiedTopology:true,
+},
+).then(() => {
+  console.log("Mongoose is connected");
+}).catch(err => {
+  console.error("Failed to connect to MongoDB", err);
+});
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connection Successful");
-  })
-  .catch((err) => {
-    console.error("Connection Failed:", err);
-  });
 
-// Configure Sessions Middleware
-app.use(
-  session({
-    secret: "r8q,+&1LM3)CD*zAGpx1xm{NeQhc;#",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { maxAge: 60 * 60 * 1000 }, // 1 hour
-  })
-);
+// //middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(cors({
+  origin:"http://localhost:3000",
+  credentials:true
+}))
+app.use(session({
+  secret:"secretcode",
+  // resave:true,
+  resave:false,
+  saveUninitialized:true
+}));
 
-// Configure Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser("Secretcode"))
 app.use(passport.initialize());
 app.use(passport.session());
+require('./passportconfig');
 
-// Passport Local Strategy
-passport.use(User.createStrategy());
+var index=require('./routes/index');
+var users=require('./routes/user');
+var auth=require('./routes/auth')(passport);
 
-// To use with sessions
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
-// Route to Homepage
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "../client/static/index.html");
-});
+app.use('/',index);
+app.use('/users',users);
+app.use('/auth',auth);
 
-// Route to Login Page
-app.get("/login", (req, res) => {
-  res.sendFile(__dirname + "../client/static/login.html");
-});
 
-// Route to Dashboard
-app.get("/dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  res.send(`Hello ${req.user.username}. Your session ID is ${req.sessionID} 
-  and your session expires in ${req.session.cookie.maxAge} 
-  milliseconds.<br><br>
-  <a href="/logout">Log Out</a><br><br><a href="/secret">Members Only</a>`);
-});
+//start server
+app.listen(4000,()=>{
+  console.log("Server has started")
+})
 
-// Route to Secret Page
-app.get("/secret", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
-  res.sendFile(__dirname + "../client/static/secret-page.html");
-});
 
-// Route to Log out
-app.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/login");
-});
-
-// Post Route: /login
-app.post(
-  "/login",
-  passport.authenticate("local", { failureRedirect: "/" }),
-  function (req, res) {
-    console.log(req.user);
-    res.redirect("/dashboard");
-  }
-);
-
-// assign port
-const port = 5000;
-app.listen(port, () => console.log(`This app is listening on port ${port}`));
-
-//connecting to mongo
-
-app.get("/", (req, res) => {
-  res.send("Hello world from the server");
-});
